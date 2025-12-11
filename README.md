@@ -30,7 +30,7 @@ To help you get started, here are a set of quick start cypher queries for the mo
 The following query will allow you to find principals with full control access to a share
 
 ```cypher
-MATCH (p:Principal)-[r]->(s:NetworkShareSMB)
+MATCH (p)-[r]->(s:NetworkShareSMB)
 WHERE (p)-[:CanDelete]->(s)
   AND (p)-[:CanDsControlAccess]->(s)
   AND (p)-[:CanDsCreateChild]->(s)
@@ -71,7 +71,7 @@ graph LR
 The following query will allow you to find files by name (case insensitive)
 
 ```cypher
-MATCH x=(p:Principal)-[r:CanWriteDacl|CanWriteOwner|CanDsWriteProperty|CanDsWriteExtendedProperties]->(s:NetworkShareSMB)
+MATCH x=(p)-[r:CanWriteDacl|CanWriteOwner|CanDsWriteProperty|CanDsWriteExtendedProperties]->(s:NetworkShareSMB)
 RETURN x 
 ```
 
